@@ -26,10 +26,12 @@ class StudentController extends Controller
     public function store(Request $request) 
     { 
         $validated = $request->validate([ 
-            'student_number' => 'required|string|max:50|unique:students,student_number', 
+            'student_number' => 
+'required|string|max:50|unique:students,student_number', 
             'first_name' => 'required|string|max:255', 
             'last_name' => 'required|string|max:255', 
-            'email' => 'required|email|max:255|unique:students,email', 
+            'email' => 
+'required|email|max:255|unique:students,email', 
             'course' => 'required|string|max:255', 
         ]); 
  
@@ -59,7 +61,8 @@ class StudentController extends Controller
                 'required', 
                 'string', 
                 'max:50', 
-                Rule::unique('students', 'student_number')->ignore($student->id), 
+                Rule::unique('students', 'student_number')
+>ignore($student->id), 
             ], 
             'first_name' => 'required|string|max:255', 
             'last_name' => 'required|string|max:255', 
@@ -67,7 +70,8 @@ class StudentController extends Controller
                 'required', 
                 'email', 
                 'max:255', 
-                Rule::unique('students', 'email')->ignore($student->id), 
+                Rule::unique('students', 'email')
+>ignore($student->id), 
             ], 
             'course' => 'required|string|max:255', 
         ]); 
